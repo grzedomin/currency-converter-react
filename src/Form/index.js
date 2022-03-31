@@ -33,7 +33,7 @@ const Form = () => {
 
                 <p>Pola oznaczone <span className="form__requiredInfo">*</span> są obowiązkowe</p>
 
-                <label className="form__label">
+                <label>
                     <span className="form__labelText">Podaj ilość PLN <span className="form__requiredInfo">*</span>:</span>
                     <input
                         value={amount}
@@ -47,7 +47,7 @@ const Form = () => {
                 </label>
 
                 <p>
-                    <label className="form__label">
+                    <label>
                         <span className="form__labelText">Wybierz walutę:</span>
                         <select
                             value={currency}
