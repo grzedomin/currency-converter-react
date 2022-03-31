@@ -1,7 +1,7 @@
 import "./style.css";
 import currencies from "../currencies.js";
 import { useState } from 'react';
-
+import Render from "./Render";
 
 
 const Form = () => {
@@ -17,7 +17,7 @@ const Form = () => {
 
     const calculateResult = () => {
         const rate = currencies.find(({ short }) => short === currency).rate;
-    
+
         setResult({
             sourceAmount: +amount,
             targetAmount: amount / rate,
@@ -45,7 +45,6 @@ const Form = () => {
                         name="form__amount"
                         className="form__input"
                         min="1"
-                        required
                     />
                 </label>
 
@@ -73,7 +72,8 @@ const Form = () => {
 
                 <p>
                     <label>
-                        Kwota po przeliczeniu: <span className="form__convertedMoney">{result.targetAmount}</span>
+                        Kwota po przeliczeniu:
+                        <Render result={result} />
                     </label>
                 </p>
 
