@@ -49,6 +49,7 @@ const Form = () => {
                         name="form__amount"
                         className="form__input"
                         min="1"
+                        step="0.1"
                         required
                     />
                 </label>
