@@ -3,12 +3,10 @@ import currencies from "../currencies.js";
 import { useState } from 'react';
 import Render from "./Render";
 
-
 const Form = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-
         calculateResult(currency);
         setAmount("");
     };
@@ -19,17 +17,14 @@ const Form = () => {
 
     const calculateResult = () => {
         const rate = currencies.find(({ short }) => short === currency).rate;
-
         setResult({
             sourceAmount: +amount,
             targetAmount: amount / rate,
             currency,
         });
-
     };
 
     return (
-
         <form
             onSubmit={onFormSubmit}
         >
@@ -68,8 +63,6 @@ const Form = () => {
                                 </option>
                             ))}
                         </select>
-
-
                     </label>
                 </p>
 
