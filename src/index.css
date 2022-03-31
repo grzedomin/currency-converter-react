@@ -1,8 +1,10 @@
 #root {
-  max-width: 500px;
-  width: 100%;
-  margin: auto;
-  font-family: 'Roboto', sans-serif;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-image: url("/src/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
