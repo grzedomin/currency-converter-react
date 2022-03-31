@@ -8,17 +8,29 @@ const Form = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+        calculateResult(currency);
     };
-    
+
     const [currency, setCurrency] = useState("USD");
     const [amount, setAmount] = useState();
     const [result, setResult] = useState("");
 
+    const calculateResult = () => {
+        const rate = currencies.find(({ short }) => short === currency).rate;
+    
+        setResult({
+            sourceAmount: +amount,
+            targetAmount: amount / rate,
+            currency,
+        });
+
+    };
+
     return (
 
         <form
-        onSubmit={onFormSubmit}
-        className="form">
+            onSubmit={onFormSubmit}
+        >
             <fieldset className="form__fieldset">
                 <h1 className="form__header">Przelicz waluty</h1>
 
@@ -40,12 +52,15 @@ const Form = () => {
                 <p>
                     <label>
                         <span className="form__labelText">Wybierz walutę:</span>
-                        <select className="form__currency form__input">
+                        <select
+                            value={currency}
+                            onChange={({ target }) => setCurrency(target.value)}
+                            className="form__currency form__input"
+                        >
                             {currencies.map(currency => (
                                 <option
-                                    value={currency}
                                     key={currency.id}
-                                    onChange={({ target }) => setCurrency(target.value)}
+                                    value={currency.short}
                                 >
                                     {currency.name}
                                 </option>
@@ -58,7 +73,7 @@ const Form = () => {
 
                 <p>
                     <label>
-                        Kwota po przeliczeniu: <span className="form__convertedMoney">{result}</span>
+                        Kwota po przeliczeniu: <span className="form__convertedMoney">{result.targetAmount}</span>
                     </label>
                 </p>
 
