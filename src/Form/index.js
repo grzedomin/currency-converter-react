@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 const Form = () => {
     const [currency, setCurrency] = useState("USD");
+    const [amount, setAmount] = useState();
 
     return (
 
@@ -18,6 +19,8 @@ const Form = () => {
                 <label>
                     <span className="form__labelText">Podaj ilość PLN <span className="form__requiredInfo">*</span>:</span>
                     <input
+                        value={amount}
+                        onChange={({ target }) => setAmount(target.value)}
                         type="number"
                         name="form__amount"
                         className="form__input"
