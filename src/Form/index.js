@@ -79,7 +79,9 @@ const Form = () => {
                     </label>
                 </p>
 
-                <Buttons resetContent={resetContent} />
+                <div className="buttons">
+                    <Buttons resetContent={resetContent} />
+                </div>
 
             </fieldset>
         </form>
