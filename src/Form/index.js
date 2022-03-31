@@ -2,6 +2,7 @@ import "./style.css";
 import currencies from "../currencies.js";
 import { useState } from 'react';
 import Render from "./Render";
+import Buttons from "../Buttons";
 
 const Form = () => {
 
@@ -22,6 +23,12 @@ const Form = () => {
             targetAmount: amount / rate,
             currency,
         });
+    };
+
+    const resetContent = () => {
+        setAmount();
+        setResult("");
+        setCurrency("USD");
     };
 
     return (
@@ -72,7 +79,7 @@ const Form = () => {
                     </label>
                 </p>
 
-                <button className="form__button">Zamień</button>
+                <Buttons resetContent={resetContent} />
 
             </fieldset>
         </form>
