@@ -7,6 +7,7 @@ import { useState } from 'react';
 const Form = () => {
     const [currency, setCurrency] = useState("USD");
     const [amount, setAmount] = useState();
+    const [result, setResult] = useState("");
 
     return (
 
@@ -50,7 +51,7 @@ const Form = () => {
 
                 <p>
                     <label>
-                        Kwota po przeliczeniu: <span className="form__convertedMoney">N/A</span>
+                        Kwota po przeliczeniu: <span className="form__convertedMoney">{result}</span>
                     </label>
                 </p>
 
