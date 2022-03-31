@@ -8,7 +8,9 @@ const Form = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+
         calculateResult(currency);
+        setAmount("");
     };
 
     const [currency, setCurrency] = useState("USD");
@@ -45,6 +47,7 @@ const Form = () => {
                         name="form__amount"
                         className="form__input"
                         min="1"
+                        required
                     />
                 </label>
 
