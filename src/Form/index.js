@@ -1,6 +1,12 @@
 import "./style.css";
+import currencies from "../currencies.js";
+import { useState } from 'react';
+
+
 
 const Form = () => {
+    const [currency, setCurrency] = useState("USD");
+
     return (
 
         <form className="form">
@@ -24,10 +30,18 @@ const Form = () => {
                     <label>
                         <span className="form__labelText">Wybierz walutę:</span>
                         <select className="form__currency form__input">
-                            <option value="EUR">EUR</option>
-                            <option value="USD">USD</option>
-                            <option value="GBP">GBP</option>
+                            {currencies.map(currency => (
+                                <option
+                                    value={currency}
+                                    key={currency.id}
+                                    onChange={({ target }) => setCurrency(target.value)}
+                                >
+                                    {currency.name}
+                                </option>
+                            ))}
                         </select>
+
+
                     </label>
                 </p>
 
