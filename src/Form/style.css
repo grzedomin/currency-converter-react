@@ -3,7 +3,7 @@
     color: #485665;
     border-radius: 35px;
     font-size: 20px;
-    margin: 30px 20px 20px 30px;
+    margin: 20px 10px 20px 10px;
     background-color:white;
     -webkit-box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
     -moz-box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
@@ -31,15 +31,22 @@
 
 .form__currency {
     padding: 3px;
-    max-width: 100px;
-    width: 100%;
+}
+
+.form__label {
+    display: flex;
 }
 
 .form__input {
     border-radius: 8px;
     border: 2px solid #485665;
+    max-width: 200px;
     width: 100%;
-    max-width: 150px;
+}
+
+.form__result {
+    width: 100%;
+    text-align: center;
 }
 
 .form__button {
@@ -61,4 +68,5 @@
     background-color:rgb(216, 216, 216);
     color: #485665;
     cursor: pointer;
+    transition: 0.3s;
 }

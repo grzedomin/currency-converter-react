@@ -1,6 +1,6 @@
 const Render = ({ result }) => (
     !!result && (
-        <span>
+        <span className="form__result">
             {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;
             {" "}
             = &nbsp;
