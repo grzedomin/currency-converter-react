@@ -5,13 +5,20 @@ import { useState } from 'react';
 
 
 const Form = () => {
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+    };
+    
     const [currency, setCurrency] = useState("USD");
     const [amount, setAmount] = useState();
     const [result, setResult] = useState("");
 
     return (
 
-        <form className="form">
+        <form
+        onSubmit={onFormSubmit}
+        className="form">
             <fieldset className="form__fieldset">
                 <h1 className="form__header">Przelicz waluty</h1>
 
