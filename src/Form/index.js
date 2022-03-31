@@ -29,11 +29,11 @@ const Form = () => {
             onSubmit={onFormSubmit}
         >
             <fieldset className="form__fieldset">
-                <h1 className="form__header">Przelicz waluty</h1>
+                <h1 className="form__header">Przelicznik walut</h1>
 
                 <p>Pola oznaczone <span className="form__requiredInfo">*</span> są obowiązkowe</p>
 
-                <label>
+                <label className="form__label">
                     <span className="form__labelText">Podaj ilość PLN <span className="form__requiredInfo">*</span>:</span>
                     <input
                         value={amount}
@@ -47,7 +47,7 @@ const Form = () => {
                 </label>
 
                 <p>
-                    <label>
+                    <label className="form__label">
                         <span className="form__labelText">Wybierz walutę:</span>
                         <select
                             value={currency}
@@ -67,8 +67,7 @@ const Form = () => {
                 </p>
 
                 <p>
-                    <label>
-                        Kwota po przeliczeniu:
+                    <label className="form__label">
                         <Render result={result} />
                     </label>
                 </p>
