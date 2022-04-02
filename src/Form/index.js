@@ -50,7 +50,7 @@ const Form = () => {
             onSubmit={onFormSubmit}
         >
             <fieldset className="form__fieldset">
-                <span className="form__dataContent">{`Dzisiaj jest ${localDate}, ${dateTime.toLocaleTimeString()}`}</span>
+                <span className="form__dateContent">{`Dzisiaj jest ${localDate}, ${dateTime.toLocaleTimeString()}`}</span>
                 <h1 className="form__header">Przelicznik walut</h1>
 
                 <p className="form__info">Pola oznaczone <span className="form__requiredInfo">*</span> są obowiązkowe</p>

@@ -54,7 +54,7 @@
     text-align: center;
 }
 
-.form__dataContent {
+.form__dateContent {
     font-size: 13px;
     display: flex;
     flex-direction: row-reverse;
