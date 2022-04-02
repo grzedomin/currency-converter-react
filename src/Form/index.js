@@ -1,6 +1,6 @@
 import "./style.css";
 import currencies from "../currencies.js";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Render from "./Render";
 import Buttons from "../Buttons";
 
@@ -31,11 +31,24 @@ const Form = () => {
         setCurrency("USD");
     };
 
+    const [dateTime, setDateTime] = useState(new Date());
+    const localDate = dateTime.toLocaleDateString("pl", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setDateTime(new Date())
+        }, 1000);
+        clearInterval(intervalId);
+
+    }, []);
+
+
     return (
         <form
             onSubmit={onFormSubmit}
         >
             <fieldset className="form__fieldset">
+                <span className="form__dataContent">{`Dzisiaj jest ${localDate}, ${dateTime.toLocaleTimeString()}`}</span>
                 <h1 className="form__header">Przelicznik walut</h1>
 
                 <p>Pola oznaczone <span className="form__requiredInfo">*</span> są obowiązkowe</p>
