@@ -53,7 +53,7 @@ const Form = () => {
                 <span className="form__dataContent">{`Dzisiaj jest ${localDate}, ${dateTime.toLocaleTimeString()}`}</span>
                 <h1 className="form__header">Przelicznik walut</h1>
 
-                <p>Pola oznaczone <span className="form__requiredInfo">*</span> są obowiązkowe</p>
+                <p className="form__info">Pola oznaczone <span className="form__requiredInfo">*</span> są obowiązkowe</p>
 
                 <label>
                     <span className="form__labelText">Podaj ilość PLN <span className="form__requiredInfo">*</span>:</span>

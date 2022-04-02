@@ -18,10 +18,16 @@
     text-align: center;
 }
 
+.form__info {
+    margin-left: 10px;
+}
+
 .form__labelText {
     max-width: 160px;
     width: 100%;
     display: inline-block;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 .form__requiredInfo{
@@ -39,7 +45,7 @@
 .form__input {
     border-radius: 8px;
     border: 2px solid #485665;
-    max-width: 200px;
+    max-width: 250px;
     width: 100%;
 }
 
