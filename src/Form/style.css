@@ -47,3 +47,10 @@
     width: 100%;
     text-align: center;
 }
+
+.form__dataContent {
+    font-size: 13px;
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: 'BIZ UDPMincho', serif;
+}
