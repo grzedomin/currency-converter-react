@@ -55,7 +55,7 @@ const Form = () => {
 
                 <p className="form__info">Pola oznaczone <span className="form__requiredInfo">*</span> są obowiązkowe</p>
 
-                <label>
+                <label className="form__label">
                     <span className="form__labelText">Podaj ilość PLN <span className="form__requiredInfo">*</span>:</span>
                     <input
                         value={amount}
@@ -69,8 +69,8 @@ const Form = () => {
                     />
                 </label>
 
-                <p>
-                    <label>
+                
+                    <label className="form__label">
                         <span className="form__labelText">Wybierz walutę:</span>
                         <select
                             value={currency}
@@ -87,13 +87,13 @@ const Form = () => {
                             ))}
                         </select>
                     </label>
-                </p>
+                
 
-                <p>
+                
                     <label className="form__label">
                         <Render result={result} />
                     </label>
-                </p>
+                
 
                 <div className="buttons">
                     <Buttons resetContent={resetContent} />
