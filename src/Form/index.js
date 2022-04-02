@@ -38,7 +38,9 @@ const Form = () => {
         const intervalId = setInterval(() => {
             setDateTime(new Date())
         }, 1000);
-        clearInterval(intervalId);
+        return () => {
+            clearInterval(intervalId);
+        };
 
     }, []);
 
