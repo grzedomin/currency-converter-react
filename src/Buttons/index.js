@@ -1,15 +1,14 @@
 import React from 'react';
-import "./style.css";
+import { Button } from "./styled";
 
 const Buttons = ({ resetContent }) => (
     <>
-        <button className="form__button">Zamień</button>
-        <button
+        <Button>Zamień</Button>
+        <Button
             onClick={() => resetContent()}
-            className="form__button"
         >
             Reset
-        </button>
+        </Button>
     </>
 );
 

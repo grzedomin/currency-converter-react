@@ -1,10 +1,6 @@
-.buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
+import styled from "styled-components";
 
-.form__button {
+export const Button = styled.button`
     padding: 6px;
     background-color: #fff;
     border: 1px solid #485665;
@@ -13,21 +9,11 @@
     width: 100%;
     max-width: 150px;
     font-size: 20px;
-}
 
-@media (max-width: 650px) {
-    .buttons {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 5px;
-    }
-}
-
-
-.form__button:hover{
+    &:hover{
     background-color:rgb(216, 216, 216);
     color: #485665;
     cursor: pointer;
     transition: 0.3s;
-}
+    }
+`;
