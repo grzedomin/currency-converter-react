@@ -1,13 +1,14 @@
+import { Result } from "./styled";
+
 const Render = ({ result }) => (
     !!result && (
-        <span className="form__result">
+        <Result>
             {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;
             {" "}
             = &nbsp;
-            {result.targetAmount.toFixed(2)}&nbsp;{result.currency}
-        </span>
+            <strong>{result.targetAmount.toFixed(2)}&nbsp;{result.currency}</strong>
+        </Result>
     )
-)
-
+);
 
 export default Render;
