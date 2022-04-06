@@ -1,8 +1,8 @@
-import "./style.css";
+import { ContainerArea } from "./styled";
 
 const Container = ({ children }) => (
-    <div className="container">
+    <ContainerArea>
         {children}
-    </div>
+    </ContainerArea>
 );
 export default Container;
