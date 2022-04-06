@@ -1,8 +1,9 @@
-import "./style.css";
+import React from 'react';
 import currencies from "../currencies.js";
 import { useEffect, useState } from 'react';
 import Render from "./Render";
 import Buttons from "../Buttons";
+import { Fieldset, Header, SubHeader, Label, Red, Title, Input, DateInfo, ButtonsContainer } from "./styled";
 
 const Form = () => {
 
@@ -44,38 +45,37 @@ const Form = () => {
 
     }, []);
 
-
     return (
         <form
             onSubmit={onFormSubmit}
         >
-            <fieldset className="form__fieldset">
-                <span className="form__dateContent">{`Dzisiaj jest ${localDate}, ${dateTime.toLocaleTimeString()}`}</span>
-                <h1 className="form__header">Przelicznik walut</h1>
+            <Fieldset>
 
-                <p className="form__info">Pola oznaczone <span className="form__requiredInfo">*</span> są obowiązkowe</p>
+                    <DateInfo>{`Dzisiaj jest ${localDate}, ${dateTime.toLocaleTimeString()}`}</DateInfo>
+                    <Header>Przelicznik walut</Header>
 
-                <label className="form__label">
-                    <span className="form__labelText">Podaj ilość PLN <span className="form__requiredInfo">*</span>:</span>
-                    <input
-                        value={amount}
-                        onChange={({ target }) => setAmount(target.value)}
-                        type="number"
-                        name="form__amount"
-                        className="form__input"
-                        min="1"
-                        step="0.1"
-                        required
-                    />
-                </label>
+                    <SubHeader>Pola oznaczone <Red>*</Red> są obowiązkowe</SubHeader>
 
-                
-                    <label className="form__label">
-                        <span className="form__labelText">Wybierz walutę:</span>
-                        <select
+                    <Label>
+                        <Title>Podaj ilość PLN <Red>*</Red>:</Title>
+                        <Input
+                            value={amount}
+                            onChange={({ target }) => setAmount(target.value)}
+                            type="number"
+                            name="form__amount"
+                            className="form__input"
+                            min="1"
+                            step="0.1"
+                            required
+                        />
+                    </Label>
+
+                    <Label>
+                        <Title>Wybierz walutę:</Title>
+                        <Input
+                            as="select"
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
-                            className="form__currency form__input"
                         >
                             {currencies.map(currency => (
                                 <option
@@ -85,21 +85,19 @@ const Form = () => {
                                     {currency.name}
                                 </option>
                             ))}
-                        </select>
-                    </label>
-                
+                        </Input>
+                    </Label>
 
-                
-                    <label className="form__label">
+                    <Label>
                         <Render result={result} />
-                    </label>
+                    </Label>
+
+
+                    <ButtonsContainer>
+                        <Buttons resetContent={resetContent} />
+                    </ButtonsContainer>
                 
-
-                <div className="buttons">
-                    <Buttons resetContent={resetContent} />
-                </div>
-
-            </fieldset>
+            </Fieldset>
         </form>
     );
 }
