@@ -60,13 +60,6 @@ export const Input = styled.input`
     padding: 3px;
 `;
 
-export const DateInfo = styled.span`
-    font-size: 13px;
-    display: flex;
-    flex-direction: row-reverse;
-    font-family: 'BIZ UDPMincho', serif;
-`;
-
 export const ButtonsContainer = styled.div`
     display: flex;
     flex-direction: row;
