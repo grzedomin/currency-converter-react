@@ -1,22 +1,20 @@
-import { useEffect, useState } from "react";
+import { useCurrentDate } from "./useCurrentDate";
 import { DateInfo } from "./styled";
 
 export const Clock = () => {
 
-    const [dateTime, setDateTime] = useState(new Date());
-    const localDate = dateTime.toLocaleDateString("pl", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setDateTime(new Date())
-        }, 1000);
-        return () => {
-            clearInterval(intervalId);
-        };
-
-    }, []);
+    const date = useCurrentDate();
 
     return (
-        <DateInfo>{`Dzisiaj jest ${localDate}, ${dateTime.toLocaleTimeString()}`}</DateInfo>
+        <DateInfo>{`Dzisiaj jest ${date.toLocaleDateString(undefined, {
+            weekday: "long",
+            hour: "2-digit",
+            minute: "2-digit",
+            secod: "2-digit",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        })}`}
+        </DateInfo>
     );
 };

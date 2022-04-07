@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Render from "./Render";
 import Buttons from "../Buttons";
 import { Clock } from "./Clock";
-import { Fieldset, Header, SubHeader, Label, Red, Title, Input, DateInfo, ButtonsContainer } from "./styled";
+import { Fieldset, Header, SubHeader, Label, Red, Title, Input, ButtonsContainer } from "./styled";
 
 
 const Form = () => {
