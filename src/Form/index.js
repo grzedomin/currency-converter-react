@@ -16,7 +16,7 @@ const Form = () => {
     };
 
     const [currency, setCurrency] = useState("USD");
-    const [amount, setAmount] = useState();
+    const [amount, setAmount] = useState("");
     const [result, setResult] = useState("");
 
     const calculateResult = () => {
