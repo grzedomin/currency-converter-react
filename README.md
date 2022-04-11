@@ -8,9 +8,13 @@ https://grzedomin.github.io/currency-converter-react/
 - CSS (Flex)
 - JavaScript
 - BEM
+- MediaQueries
 - React
 - create-react-app
 - ES6+
+- React hooks
+- custom hooks
+- Styled-compontents
 
 
 ### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
