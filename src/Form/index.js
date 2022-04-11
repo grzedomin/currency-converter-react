@@ -1,7 +1,7 @@
 import React from 'react';
 import currencies from "../currencies.js";
 import { useState } from 'react';
-import Render from "./Render";
+import Result from "./Result";
 import Buttons from "../Buttons";
 import { Clock } from "./Clock";
 import { Fieldset, Header, SubHeader, Label, Red, Title, Input, ButtonsContainer } from "./styled";
@@ -29,7 +29,7 @@ const Form = () => {
     };
 
     const resetContent = () => {
-        setAmount();
+        setAmount("");
         setResult("");
         setCurrency("USD");
     };
@@ -76,7 +76,7 @@ const Form = () => {
                 </Label>
 
                 <Label>
-                    <Render result={result} />
+                    <Result result={result} />
                 </Label>
 
 

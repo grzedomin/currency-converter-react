@@ -1,14 +1,14 @@
-import { Result } from "./styled";
+import { Wrapper } from "./styled";
 
-const Render = ({ result }) => (
+const Result = ({ result }) => (
     !!result && (
-        <Result>
+        <Wrapper>
             {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;
             {" "}
             = &nbsp;
             <strong>{result.targetAmount.toFixed(2)}&nbsp;{result.currency}</strong>
-        </Result>
+        </Wrapper>
     )
 );
 
-export default Render;
+export default Result;
