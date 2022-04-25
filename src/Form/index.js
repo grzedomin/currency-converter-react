@@ -9,18 +9,16 @@ import axios from 'axios';
 
 
 const Form = () => {
+
     const [APIRates, setAPIRates] = useState([]);
 
     useEffect(() => {
-        axios.get("https://api.exchangerate.host/latest")
+        axios.get("https://api.exchangerate.host/latest?base=PLN")
             .then(response => {
                 setAPIRates(response.data.rates);
-
             })
             .catch(error => console.log(error));
     }, []);
-
-    console.log(APIRates);
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -33,7 +31,7 @@ const Form = () => {
     const [result, setResult] = useState("");
 
     const calculateResult = () => {
-        const rate = APIRates;
+        const rate = APIRates[currency];
         setResult({
             sourceAmount: +amount,
             targetAmount: amount / rate,
@@ -77,12 +75,12 @@ const Form = () => {
                         value={currency}
                         onChange={({ target }) => setCurrency(target.value)}
                     >
-                        {Object.keys(APIRates).map(rate => (
+                        {Object.keys(APIRates).map(currency => (
                             <option
-                                key={rate}
-                                value={rate}
+                                key={currency}
+                                value={currency}
                             >
-                                {rate}
+                                {currency}
                             </option>
                         ))}
                     </Input>
