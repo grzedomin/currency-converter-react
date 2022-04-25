@@ -4,18 +4,20 @@ import { useState, useEffect } from 'react';
 import Result from "./Result";
 import Buttons from "../Buttons";
 import { Clock } from "./Clock";
-import { Fieldset, Header, SubHeader, Label, Red, Title, Input, ButtonsContainer } from "./styled";
+import { Fieldset, Header, SubHeader, Label, Red, Title, Input, ButtonsContainer, ParagraphInfo } from "./styled";
 import axios from 'axios';
 
 
 const Form = () => {
 
     const [APIRates, setAPIRates] = useState([]);
+    const [APIDate, setAPIDate] = useState("");
 
     useEffect(() => {
         axios.get("https://api.exchangerate.host/latest?base=PLN")
             .then(response => {
                 setAPIRates(response.data.rates);
+                setAPIDate(response.data.date);
             })
             .catch(error => console.log(error));
     }, []);
@@ -95,6 +97,10 @@ const Form = () => {
                     <Buttons resetContent={resetContent} />
                 </ButtonsContainer>
 
+                <ParagraphInfo>
+                    Kursy walut pobierane są z Europejskiego Banku Centralnego.
+                    Aktualne na dzień: {APIDate}
+                </ParagraphInfo>
             </Fieldset>
         </form>
     );

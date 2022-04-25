@@ -72,3 +72,8 @@ export const ButtonsContainer = styled.div`
         gap: 5px;  
     }
 `;
+
+export const ParagraphInfo = styled.p`
+    text-align: center;
+    margin-bottom: 0px;
+`
