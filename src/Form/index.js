@@ -23,11 +23,9 @@ const Form = () => {
 
         (async () => {
             try {
-                await axios.get("https://api.exchangerate.host/latest?base=PLN")
-                    .then(response => {
+                const response = await axios("https://api.exchangerate.host/latest?base=PLN")     
                         setAPIRates(response.data.rates);
-                        setAPIDate(response.data.date);
-                    })
+                        setAPIDate(response.data.date);           
             }
             catch (error) {
                 console.error("Something bad happened", error);
