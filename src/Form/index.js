@@ -19,14 +19,8 @@ const Form = () => {
     const [showErrorComponent, setShowErrorComponent] = useState(false);
 
     useEffect(() => {
-        setTimeout((response) => {
+        const timeoutId = setTimeout(() => {
             setShowInfo(false)
-
-            if (!response) {
-                setShowErrorComponent(true)
-                setShowComponent(false);
-            }
-            setShowErrorComponent(false)
             setShowComponent(true);
         }, 2000);
 
@@ -38,7 +32,9 @@ const Form = () => {
             }
             catch (error) {
                 console.error("Something bad happened", error);
-
+                setShowErrorComponent(true);
+                setShowInfo(false);
+                clearTimeout(timeoutId);
             }
         })();
     }, []);
@@ -86,7 +82,7 @@ const Form = () => {
                     <Header>Przelicznik Walut</Header>
                     <PopUpErrorInfo>
                         Hmmm... coś poszło nie tak. Sprawdź czy masz połączenie z internetem. <br />
-                        Jeśli masz to najprawdopodobniej to nasza wina. Spróbuj później...
+                        Jeśli masz internet to najprawdopodobniej to nasza wina. Spróbuj później...
                     </PopUpErrorInfo>
                 </WaitingPopUp>
             }
