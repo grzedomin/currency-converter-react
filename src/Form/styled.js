@@ -110,3 +110,8 @@ export const PopUpSubHeader = styled.span`
 export const PopUpInfo = styled.p`
     margin: 0;
 `
+
+export const PopUpErrorInfo = styled.span`
+    color: crimson;
+    
+`

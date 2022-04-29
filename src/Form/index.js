@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react';
 import Result from "./Result";
 import Buttons from "../Buttons";
 import { Clock } from "./Clock";
-import { Fieldset, Header, SubHeader, Label, Red, Title, Input, ButtonsContainer, ParagraphInfo, WaitingPopUp, PopUpSubHeader, PopUpInfo } from "./styled";
+import {
+    Fieldset, Header, SubHeader, Label, Red, Title, Input, ButtonsContainer,
+    ParagraphInfo, WaitingPopUp, PopUpSubHeader, PopUpInfo, PopUpErrorInfo
+} from "./styled";
 import axios from 'axios';
 
 
@@ -13,21 +16,29 @@ const Form = () => {
     const [APIDate, setAPIDate] = useState("");
     const [showComponent, setShowComponent] = useState(false);
     const [showInfo, setShowInfo] = useState(true);
+    const [showErrorComponent, setShowErrorComponent] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
+        setTimeout((response) => {
             setShowInfo(false)
+
+            if (!response) {
+                setShowErrorComponent(true)
+                setShowComponent(false);
+            }
+            setShowErrorComponent(false)
             setShowComponent(true);
         }, 2000);
 
         (async () => {
             try {
-                const response = await axios("https://api.exchangerate.host/latest?base=PLN")     
-                        setAPIRates(response.data.rates);
-                        setAPIDate(response.data.date);           
+                const response = await axios("https://api.exchangerate.host/latest?base=PLN")
+                setAPIRates(response.data.rates);
+                setAPIDate(response.data.date);
             }
             catch (error) {
                 console.error("Something bad happened", error);
+
             }
         })();
     }, []);
@@ -66,7 +77,20 @@ const Form = () => {
                     <PopUpSubHeader>Sekundka...
                         <PopUpInfo>Ładuję kursy walut z Europejskiego Banku Centralnego...</PopUpInfo>
                     </PopUpSubHeader>
-                </WaitingPopUp>}
+                </WaitingPopUp>
+            }
+
+            {showErrorComponent &&
+                <WaitingPopUp>
+                    <Clock />
+                    <Header>Przelicznik Walut</Header>
+                    <PopUpErrorInfo>
+                        Hmmm... coś poszło nie tak. Sprawdź czy masz połączenie z internetem. <br />
+                        Jeśli masz to najprawdopodobniej to nasza wina. Spróbuj później...
+                    </PopUpErrorInfo>
+                </WaitingPopUp>
+            }
+
             {showComponent &&
                 <form
                     onSubmit={onFormSubmit}
