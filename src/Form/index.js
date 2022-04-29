@@ -16,7 +16,8 @@ import {
     WaitingPopUp,
     PopUpSubHeader,
     PopUpInfo,
-    PopUpErrorInfo
+    PopUpErrorInfo,
+    StyledDate,
 } from "./styled";
 
 import { useRatesData } from "./useRatesData";
@@ -134,7 +135,7 @@ const Form = () => {
 
                         <ParagraphInfo>
                             Kursy walut pobierane są z Europejskiego Banku Centralnego.
-                            Aktualne na dzień: {APIDate}
+                            Aktualne na dzień: <StyledDate>{APIDate}</StyledDate>
                         </ParagraphInfo>
                     </Fieldset>
                 </form>
