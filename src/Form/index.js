@@ -1,5 +1,4 @@
 import React from 'react';
-import currencies from "../currencies.js";
 import { useState, useEffect } from 'react';
 import Result from "./Result";
 import Buttons from "../Buttons";
