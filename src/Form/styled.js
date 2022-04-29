@@ -15,7 +15,7 @@ export const Fieldset = styled.fieldset`
 
 export const Header = styled.h1`
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 800;
     color: #485665;
     text-align: center;
 `;
@@ -58,7 +58,7 @@ export const Input = styled.input`
     max-width: 250px;
     width: 100%;
     padding: 3px;
-    font-weight: 400;
+    font-weight: 300;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -80,41 +80,30 @@ export const ParagraphInfo = styled.p`
 `
 
 export const StyledDate = styled.span`
-    font-weight: bolder;
+    font-weight: 500;
 `
 
 export const WaitingPopUp = styled.div`
     height: 170px;
     border-radius: 20px;
     margin: 10px;
-    color: #485665;
+    padding: 30px;
     font-size: 18px;
     text-align: center;
     background-color: white;
-    padding: 30px;
-    -webkit-box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
-    -moz-box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
-    box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
+    color: #485665;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
+    box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
 `
 
-export const PopUpSubHeader = styled.span`
-    gap: 5px;
+export const PopUpInfo = styled.span`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-        @media (max-width: 500px) {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-`
-
-export const PopUpInfo = styled.p`
-    margin: 0;
+    align-items: center;
 `
 
 export const PopUpErrorInfo = styled.span`

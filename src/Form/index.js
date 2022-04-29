@@ -14,12 +14,10 @@ import {
     ButtonsContainer,
     ParagraphInfo,
     WaitingPopUp,
-    PopUpSubHeader,
     PopUpInfo,
     PopUpErrorInfo,
     StyledDate,
 } from "./styled";
-
 import { useRatesData } from "./useRatesData";
 
 const Form = () => {
@@ -66,9 +64,10 @@ const Form = () => {
                 <WaitingPopUp>
                     <Clock />
                     <Header>Przelicznik Walut</Header>
-                    <PopUpSubHeader>Sekundka...
-                        <PopUpInfo>Ładuję kursy walut z Europejskiego Banku Centralnego...</PopUpInfo>
-                    </PopUpSubHeader>
+                    <PopUpInfo>
+                        Sekundka... <br />
+                        Ładuję kursy walut z Europejskiego Banku Centralnego...
+                    </PopUpInfo>
                 </WaitingPopUp>
             }
 
@@ -77,7 +76,7 @@ const Form = () => {
                     <Clock />
                     <Header>Przelicznik Walut</Header>
                     <PopUpErrorInfo>
-                        Hmmm... coś poszło nie tak. Sprawdź czy masz połączenie z internetem. <br />
+                        Hmmm... coś poszło nie tak. Sprawdź czy masz połączenie z internetem.
                         Jeśli masz internet to najprawdopodobniej to nasza wina. Spróbuj później...
                     </PopUpErrorInfo>
                 </WaitingPopUp>
@@ -102,7 +101,6 @@ const Form = () => {
                                 type="number"
                                 min="1"
                                 step="0.1"
-
                             />
                         </Label>
 
