@@ -4,8 +4,19 @@ import Result from "./Result";
 import Buttons from "../Buttons";
 import { Clock } from "./Clock";
 import {
-    Fieldset, Header, SubHeader, Label, Red, Title, Input, ButtonsContainer,
-    ParagraphInfo, WaitingPopUp, PopUpSubHeader, PopUpInfo, PopUpErrorInfo
+    Fieldset,
+    Header,
+    SubHeader,
+    Label,
+    Red,
+    Title,
+    Input,
+    ButtonsContainer,
+    ParagraphInfo,
+    WaitingPopUp,
+    PopUpSubHeader,
+    PopUpInfo,
+    PopUpErrorInfo
 } from "./styled";
 import axios from 'axios';
 
