@@ -58,6 +58,7 @@ export const Input = styled.input`
     max-width: 250px;
     width: 100%;
     padding: 3px;
+    font-weight: 400;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -78,11 +79,16 @@ export const ParagraphInfo = styled.p`
     margin-bottom: 0px;
 `
 
+export const StyledDate = styled.span`
+    font-weight: bolder;
+`
+
 export const WaitingPopUp = styled.div`
     height: 170px;
     border-radius: 20px;
     margin: 10px;
-    font-size: 16px;
+    color: #485665;
+    font-size: 18px;
     text-align: center;
     background-color: white;
     padding: 30px;
@@ -113,5 +119,4 @@ export const PopUpInfo = styled.p`
 
 export const PopUpErrorInfo = styled.span`
     color: crimson;
-    
 `

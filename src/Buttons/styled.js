@@ -9,6 +9,7 @@ export const Button = styled.button`
     width: 100%;
     max-width: 150px;
     font-size: 20px;
+    font-weight: 400;
 
     &:hover{
     background-color:rgb(216, 216, 216);
