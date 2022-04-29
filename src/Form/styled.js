@@ -15,7 +15,7 @@ export const Fieldset = styled.fieldset`
 
 export const Header = styled.h1`
     font-size: 30px;
-    font-weight: 300;
+    font-weight: 900;
     color: #485665;
     text-align: center;
 `;
@@ -76,4 +76,37 @@ export const ButtonsContainer = styled.div`
 export const ParagraphInfo = styled.p`
     text-align: center;
     margin-bottom: 0px;
+`
+
+export const WaitingPopUp = styled.div`
+    height: 170px;
+    border-radius: 20px;
+    margin: 10px;
+    font-size: 16px;
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
+    box-shadow: 0px 0px 3px 0px rgba(175, 175, 175, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+`
+
+export const PopUpSubHeader = styled.span`
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+        @media (max-width: 500px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+`
+
+export const PopUpInfo = styled.p`
+    margin: 0;
 `
