@@ -33,6 +33,9 @@ const Form = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+        if (!amount) {
+            return;
+        }
         calculateResult(currency);
         setAmount("");
     };
@@ -98,7 +101,7 @@ const Form = () => {
                                 type="number"
                                 min="1"
                                 step="0.1"
-                                required
+
                             />
                         </Label>
 
