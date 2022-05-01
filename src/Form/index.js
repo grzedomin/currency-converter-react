@@ -132,7 +132,7 @@ const Form = () => {
                         </ButtonsContainer>
 
                         <ParagraphInfo>
-                            Kursy walut pobierane są z Europejskiego Banku Centralnego.
+                            Kursy walut pobierane są z Europejskiego Banku Centralnego. <br />
                             Aktualne na dzień: <StyledDate>{APIDate}</StyledDate>
                         </ParagraphInfo>
                     </Fieldset>

@@ -77,6 +77,7 @@ export const ButtonsContainer = styled.div`
 export const ParagraphInfo = styled.p`
     text-align: center;
     margin-bottom: 0px;
+    font-size: 18px;
 `
 
 export const StyledDate = styled.span`
