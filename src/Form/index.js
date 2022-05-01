@@ -77,7 +77,7 @@ const Form = () => {
                     <Header>Przelicznik Walut</Header>
                     <PopUpErrorInfo>
                         Hmmm... coś poszło nie tak. Sprawdź czy masz połączenie z internetem.
-                        Jeśli masz internet to najprawdopodobniej to nasza wina. Spróbuj później...
+                        Jeśli masz internet to najprawdopodobniej to nasza wina. Spróbuj ponownie później...
                     </PopUpErrorInfo>
                 </WaitingPopUp>
             }
