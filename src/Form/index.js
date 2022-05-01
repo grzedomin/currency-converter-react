@@ -26,8 +26,8 @@ const Form = () => {
         APIRates,
         APIDate,
         showComponent,
-        showInfo,
-        showErrorComponent
+        onLoadInfo,
+        onLoadErrorInfo
     } = useRatesData();
 
     const onFormSubmit = (event) => {
@@ -60,7 +60,7 @@ const Form = () => {
 
     return (
         <>
-            {showInfo &&
+            {onLoadInfo &&
                 <WaitingPopUp>
                     <Clock />
                     <Header>Przelicznik Walut</Header>
@@ -71,7 +71,7 @@ const Form = () => {
                 </WaitingPopUp>
             }
 
-            {showErrorComponent &&
+            {onLoadErrorInfo &&
                 <WaitingPopUp>
                     <Clock />
                     <Header>Przelicznik Walut</Header>

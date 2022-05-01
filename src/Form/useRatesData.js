@@ -6,12 +6,12 @@ export const useRatesData = () => {
     const [APIRates, setAPIRates] = useState([]);
     const [APIDate, setAPIDate] = useState("");
     const [showComponent, setShowComponent] = useState(false);
-    const [showInfo, setShowInfo] = useState(true);
-    const [showErrorComponent, setShowErrorComponent] = useState(false);
+    const [onLoadInfo, setOnLoadInfo] = useState(true);
+    const [onLoadErrorInfo, setOnLoadErrorInfo] = useState(false);
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-            setShowInfo(false)
+            setOnLoadInfo(false)
             setShowComponent(true);
         }, 2000);
 
@@ -23,8 +23,8 @@ export const useRatesData = () => {
             }
             catch (error) {
                 console.error("Something bad happened", error);
-                setShowErrorComponent(true);
-                setShowInfo(false);
+                setOnLoadErrorInfo(true);
+                setOnLoadInfo(false);
                 clearTimeout(timeoutId);
             }
         })();
@@ -34,7 +34,7 @@ export const useRatesData = () => {
         APIRates,
         APIDate,
         showComponent,
-        showInfo,
-        showErrorComponent
+        onLoadInfo,
+        onLoadErrorInfo
     };
 };
