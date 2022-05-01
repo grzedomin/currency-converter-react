@@ -39,7 +39,7 @@ const Form = () => {
         setAmount("");
     };
 
-    const [currency, setCurrency] = useState("");
+    const [currency, setCurrency] = useState("USD");
     const [amount, setAmount] = useState("");
     const [result, setResult] = useState("");
 
@@ -47,7 +47,7 @@ const Form = () => {
         const rate = APIRates[currency];
         setResult({
             sourceAmount: +amount,
-            targetAmount: amount / rate,
+            targetAmount: amount * rate,
             currency,
         });
     };
@@ -55,7 +55,7 @@ const Form = () => {
     const resetContent = () => {
         setAmount("");
         setResult("");
-        setCurrency("");
+        setCurrency("USD");
     };
 
     return (
