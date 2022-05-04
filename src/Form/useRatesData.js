@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 export const useRatesData = () => {
-
     const [APIRates, setAPIRates] = useState([]);
     const [APIDate, setAPIDate] = useState("");
     const [showComponent, setShowComponent] = useState(false);
