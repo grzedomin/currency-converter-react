@@ -84,7 +84,7 @@ export const StyledDate = styled.span`
     font-weight: 500;
 `
 
-export const WaitingPopUp = styled.div`
+export const Loading = styled.div`
     height: 170px;
     border-radius: 20px;
     margin: 10px;

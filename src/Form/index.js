@@ -13,7 +13,7 @@ import {
     Input,
     ButtonsContainer,
     ParagraphInfo,
-    WaitingPopUp,
+    Loading,
     PopUpInfo,
     PopUpErrorInfo,
     StyledDate,
@@ -21,13 +21,10 @@ import {
 import { useRatesData } from "./useRatesData";
 
 const Form = () => {
-
     const {
         APIRates,
         APIDate,
-        showComponent,
-        onLoadInfo,
-        onLoadErrorInfo
+        fetchState,
     } = useRatesData();
 
     const onFormSubmit = (event) => {
@@ -60,84 +57,85 @@ const Form = () => {
 
     return (
         <>
-            {onLoadInfo &&
-                <WaitingPopUp>
-                    <Clock />
-                    <Header>Przelicznik Walut</Header>
-                    <PopUpInfo>
-                        Sekundka... <br />
-                        Ładuję kursy walut z Europejskiego Banku Centralnego...
-                    </PopUpInfo>
-                </WaitingPopUp>
-            }
-
-            {onLoadErrorInfo &&
-                <WaitingPopUp>
-                    <Clock />
-                    <Header>Przelicznik Walut</Header>
-                    <PopUpErrorInfo>
-                        Hmmm... coś poszło nie tak. Sprawdź czy masz połączenie z internetem.
-                        Jeśli masz internet to najprawdopodobniej to nasza wina. Spróbuj ponownie później...
-                    </PopUpErrorInfo>
-                </WaitingPopUp>
-            }
-
-            {showComponent &&
-                <form
-                    onSubmit={onFormSubmit}
-                >
-                    <Fieldset>
-
+            {fetchState.state === "loading" ?
+                (
+                    <Loading>
                         <Clock />
-                        <Header>Przelicznik walut</Header>
+                        <Header>Przelicznik Walut</Header>
+                        <PopUpInfo>
+                            Sekundka... <br />
+                            Ładuję kursy walut z Europejskiego Banku Centralnego...
+                        </PopUpInfo>
+                    </Loading>
+                )
+                : fetchState.state === "error" ?
+                    (
+                        <Loading>
+                            <Clock />
+                            <Header>Przelicznik Walut</Header>
+                            <PopUpErrorInfo>
+                                Hmmm... coś poszło nie tak. Sprawdź czy masz połączenie z internetem.
+                                Jeśli masz internet to najprawdopodobniej to nasza wina. Spróbuj ponownie później...
+                            </PopUpErrorInfo>
+                        </Loading>
+                    )
+                    :
+                    (
+                        <form
+                            onSubmit={onFormSubmit}
+                        >
+                            <Fieldset>
+                                <Clock />
+                                <Header>Przelicznik walut</Header>
 
-                        <SubHeader>Pola oznaczone <Red>*</Red> są obowiązkowe</SubHeader>
+                                <SubHeader>Pola oznaczone <Red>*</Red> są obowiązkowe</SubHeader>
 
-                        <Label>
-                            <Title>Podaj ilość PLN <Red>*</Red>:</Title>
-                            <Input
-                                value={amount}
-                                onChange={({ target }) => setAmount(target.value)}
-                                type="number"
-                                min="1"
-                                step="0.1"
-                            />
-                        </Label>
+                                <Label>
+                                    <Title>Podaj ilość PLN <Red>*</Red>:</Title>
+                                    <Input
+                                        value={amount}
+                                        onChange={({ target }) => setAmount(target.value)}
+                                        type="number"
+                                        min="1"
+                                        step="0.1"
+                                    />
+                                </Label>
 
-                        <Label>
-                            <Title>Wybierz walutę:</Title>
-                            <Input
-                                as="select"
-                                value={currency}
-                                onChange={({ target }) => setCurrency(target.value)}
-                            >
-                                {Object.keys(APIRates).map(currency => (
-                                    <option
-                                        key={currency}
+                                <Label>
+                                    <Title>Wybierz walutę:</Title>
+                                    <Input
+                                        as="select"
                                         value={currency}
+                                        onChange={({ target }) => setCurrency(target.value)}
                                     >
-                                        {currency}
-                                    </option>
-                                ))}
-                            </Input>
-                        </Label>
+                                        {Object.keys(APIRates).map(currency => (
+                                            <option
+                                                key={currency}
+                                                value={currency}
+                                            >
+                                                {currency}
+                                            </option>
+                                        ))}
+                                    </Input>
+                                </Label>
 
-                        <Label>
-                            <Result result={result} />
-                        </Label>
+                                <Label>
+                                    <Result result={result} />
+                                </Label>
 
+                                <ButtonsContainer>
+                                    <Buttons resetContent={resetContent} />
+                                </ButtonsContainer>
 
-                        <ButtonsContainer>
-                            <Buttons resetContent={resetContent} />
-                        </ButtonsContainer>
-
-                        <ParagraphInfo>
-                            Kursy walut pobierane są z Europejskiego Banku Centralnego. <br />
-                            Aktualne na dzień: <StyledDate>{APIDate}</StyledDate>
-                        </ParagraphInfo>
-                    </Fieldset>
-                </form>
+                                <ParagraphInfo>
+                                    Kursy walut pobierane są z Europejskiego Banku Centralnego. <br />
+                                    Aktualne na dzień: <StyledDate>{APIDate}</StyledDate>
+                                </ParagraphInfo>
+                            </Fieldset>
+                        </form>
+                    )
             }
+
         </>
     );
 }
