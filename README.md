@@ -12,9 +12,11 @@ https://grzedomin.github.io/currency-converter-react/
 - React
 - create-react-app
 - ES6+
-- React hooks
+- React hooks (useState, useEffect)
 - custom hooks
 - Styled-compontents
+- Promises(async/await)
+- API
 
 
 ### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
